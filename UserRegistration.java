@@ -8,6 +8,8 @@ public class UserRegistration {
 	{
 		String regex = "(^[A-Z]{1}[a-zA-Z]{2}[a-zA-Z]*)";
 		String eMailRegex = "(^[A-Za-z0-9.-_]+@+[a-zA-Z]+.+[com])";
+		String phoneNumberRegex = "(^(91)[7-9][0-9]{9})";
+		String phoneNumber;
 		String firstName,lastName,eMail;
 		Scanner scanner=new Scanner(System.in);
 		
@@ -71,6 +73,29 @@ public class UserRegistration {
 						System.exit(0);
 					}	
 		}
+		
+		
+		//***************Phone Number Verification**************************;
+		
+				System.out.println("Enter the contact number of a user in proper format");
+				phoneNumber=scanner.nextLine();
+				pattern = Pattern.compile(phoneNumberRegex);
+				matcher=pattern.matcher(phoneNumber);
+				b=matcher.matches();
+				System.out.println(b);
+				if(b==false)
+				{		System.out.println("Enter proper contact number preceding with country code. 'Example.917852635236'");
+						phoneNumber=scanner.nextLine();
+						 pattern = Pattern.compile(phoneNumberRegex);
+						 matcher=pattern.matcher(phoneNumber);
+						 b=matcher.matches();
+						 System.out.println(b);				
+							if(b==false)
+							{
+								System.out.println("You entered contact wrong again");
+								System.exit(0);
+							}	
+				}
 		
 		
 		
